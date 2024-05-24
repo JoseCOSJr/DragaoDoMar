@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://co28po0n5a4xv"]
+
+[node name="Main_camera" type="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 0)
+far = 100.0

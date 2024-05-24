@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5vxivnku67yl"]
+
+[ext_resource type="PackedScene" uid="uid://co28po0n5a4xv" path="res://Miscs/main_camera.tscn" id="1_2xwbu"]
+[ext_resource type="Texture2D" uid="uid://deoh076vxiqa2" path="res://Placeholder folder/7.png" id="2_wi8aj"]
+[ext_resource type="PackedScene" uid="uid://cwo6y2ytuw2ha" path="res://Chars folder/player_ship.tscn" id="3_fcjat"]
+
+[node name="Node3D Scene Ocean" type="Node3D"]
+
+[node name="Main_camera" parent="." instance=ExtResource("1_2xwbu")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 5)
+
+[node name="Node Ocean" type="Node" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node Ocean"]
+axis = 1
+render_priority = -1
+texture = ExtResource("2_wi8aj")
+
+[node name="Player_ship" parent="." instance=ExtResource("3_fcjat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

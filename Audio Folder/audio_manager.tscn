@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csly1i7t1g1ex"]
+
+[ext_resource type="AudioStream" uid="uid://bl5ty4cj5jiaf" path="res://Placeholder folder/musica_da_fase.mp3" id="1_dl6f6"]
+
+[node name="audio_manager" type="AudioStreamPlayer"]
+stream = ExtResource("1_dl6f6")
+autoplay = true

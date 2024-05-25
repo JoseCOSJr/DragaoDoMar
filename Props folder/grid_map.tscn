@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4inke5h374m"]
+
+[ext_resource type="Material" uid="uid://qpdcmdmnia3v" path="res://Materials folder/invisible_standard_material_3d.tres" id="1_qksxv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q65ud"]
+size = Vector2(1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvrn2"]
+size = Vector3(1, 0.2, 1)
+
+[node name="grid_map" type="Node3D"]
+
+[node name="ocean" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_q65ud")
+surface_material_override/0 = ExtResource("1_qksxv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ocean"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ocean/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_hvrn2")

@@ -2,11 +2,21 @@ extends CharacterBody3D
 
 const SPEED = 3.0
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction = Vector3.FORWARD
+var cam
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 
+func _ready():
+	cam = get_tree().get_first_node_in_group("camPlayer")
+	cam.set_target(get_node("."))
+
 func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left_move", "right_move", "up_move", "down_move")

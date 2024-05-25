@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://co28po0n5a4xv"]
+[gd_scene load_steps=2 format=3 uid="uid://co28po0n5a4xv"]
 
-[node name="Main_camera" type="Camera3D"]
+[ext_resource type="Script" path="res://Miscs/main_camera_manager.gd" id="1_3s0hd"]
+
+[node name="Main_camera" type="Camera3D" groups=["camPlayer"]]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 0)
+current = true
 far = 100.0
+script = ExtResource("1_3s0hd")

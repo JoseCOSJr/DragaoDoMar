@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://o82oplt7fe4g"]
+
+[ext_resource type="Script" path="res://DisableFunction.gd" id="1_k6roj"]
+[ext_resource type="Texture2D" uid="uid://c07gqn24nc145" path="res://Placeholder folder/Quadrado.png" id="2_pfyb1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sbyji"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_p56pg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3DFlashPicture:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tsto3"]
+resource_name = "flash_picture_animation"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3DFlashPicture:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DisableFunction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disable_objt"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tydbn"]
+_data = {
+"RESET": SubResource("Animation_p56pg"),
+"flash_picture_animation": SubResource("Animation_tsto3")
+}
+
+[node name="Flash Picture" type="Area3D"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="DisableFunction" type="Node" parent="." node_paths=PackedStringArray("objtDisable")]
+script = ExtResource("1_k6roj")
+objtDisable = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_sbyji")
+disabled = true
+
+[node name="Sprite3DFlashPicture" type="Sprite3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 1)
+transparency = 1.0
+axis = 1
+texture = ExtResource("2_pfyb1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tydbn")
+}

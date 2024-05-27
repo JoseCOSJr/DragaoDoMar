@@ -4,6 +4,14 @@ extends Node
 var missionsArrayInf: Array
 var missionsCompleted: Array[String]
 
+func GameOver():
+	await get_tree().create_timer(3).timeout
+	$GameOver.Switch_Scene()
+
+func Win():
+	await get_tree().create_timer(1).timeout
+	$Win.Switch_Scene()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	missionsArrayInf = []

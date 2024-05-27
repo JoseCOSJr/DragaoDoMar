@@ -1,9 +1,9 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qpdcmdmnia3v"]
 
-[ext_resource type="Texture2D" uid="uid://deoh076vxiqa2" path="res://Placeholder folder/7.png" id="1_q6hui"]
+[ext_resource type="Texture2D" uid="uid://dl08txga7h55p" path="res://Tiles folder/mar.png" id="1_vqqnx"]
 
 [resource]
 specular_mode = 2
 disable_ambient_light = true
-albedo_color = Color(0.027451, 1, 1, 1)
-albedo_texture = ExtResource("1_q6hui")
+albedo_texture = ExtResource("1_vqqnx")
+texture_filter = 0

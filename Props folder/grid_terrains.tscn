@@ -1,0 +1,333 @@
+[gd_scene load_steps=39 format=3 uid="uid://42dbne72mfmy"]
+
+[ext_resource type="Texture2D" uid="uid://cptcxx5mcj463" path="res://Tiles folder/terra_2.png" id="1_iwj84"]
+[ext_resource type="Texture2D" uid="uid://6o4xo5q0xdoc" path="res://Tiles folder/terra_3.png" id="2_6p1bd"]
+[ext_resource type="Texture2D" uid="uid://b51pd41os1jy5" path="res://Tiles folder/terra_1.png" id="2_fl2co"]
+[ext_resource type="Texture2D" uid="uid://bxp1y5jvuo1o8" path="res://Tiles folder/terra_4.png" id="3_7h32h"]
+[ext_resource type="Texture2D" uid="uid://d4lyuw0ge18da" path="res://Tiles folder/terra_5.png" id="4_uqcqn"]
+[ext_resource type="Texture2D" uid="uid://ea7ms2reo2ew" path="res://Tiles folder/terra_15.png" id="5_51ntc"]
+[ext_resource type="Texture2D" uid="uid://dsldemhk8rra7" path="res://Tiles folder/terra_16.png" id="6_ohg0h"]
+[ext_resource type="Texture2D" uid="uid://cqbs5hacu3mgo" path="res://Tiles folder/terra_6.png" id="6_y0isp"]
+[ext_resource type="Texture2D" uid="uid://bptj6rir5q1j0" path="res://Tiles folder/terra_18.png" id="7_34igg"]
+[ext_resource type="Texture2D" uid="uid://8l327a1mgm68" path="res://Tiles folder/terra_7.png" id="7_vk8cm"]
+[ext_resource type="Texture2D" uid="uid://csb3l5sv1c4i6" path="res://Tiles folder/terra_8.png" id="8_hwcxx"]
+[ext_resource type="Texture2D" uid="uid://671a4kp1d66g" path="res://Tiles folder/terra_14.png" id="8_oevi8"]
+[ext_resource type="Texture2D" uid="uid://btg5dt8lfsxqe" path="res://Tiles folder/terra_17.png" id="9_3j22n"]
+[ext_resource type="Texture2D" uid="uid://b72hjb87voged" path="res://Tiles folder/terra_13.png" id="12_y8lnv"]
+[ext_resource type="Texture2D" uid="uid://cogsxjrkr3pal" path="res://Tiles folder/terra_11.png" id="14_au2qy"]
+[ext_resource type="Texture2D" uid="uid://bni7givqtg7k4" path="res://Tiles folder/terra_12.png" id="15_2n4np"]
+[ext_resource type="Texture2D" uid="uid://c6kouhtqpg007" path="res://Tiles folder/terra_10.png" id="16_lq12f"]
+[ext_resource type="Texture2D" uid="uid://cooqnnx08fpfm" path="res://Tiles folder/terra_9.png" id="18_7in2q"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x44pc"]
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvx5d"]
+albedo_texture = ExtResource("1_iwj84")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_od3te"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8jfh"]
+albedo_texture = ExtResource("2_6p1bd")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3lpf"]
+albedo_texture = ExtResource("3_7h32h")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmc8o"]
+albedo_texture = ExtResource("4_uqcqn")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1rgr"]
+albedo_texture = ExtResource("5_51ntc")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fppkg"]
+albedo_texture = ExtResource("6_ohg0h")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfich"]
+albedo_texture = ExtResource("7_34igg")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvx41"]
+albedo_texture = ExtResource("8_oevi8")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ib02x"]
+albedo_texture = ExtResource("9_3j22n")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfyjm"]
+albedo_texture = ExtResource("2_fl2co")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gowm2"]
+albedo_texture = ExtResource("6_y0isp")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtw4m"]
+albedo_texture = ExtResource("12_y8lnv")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umglj"]
+albedo_texture = ExtResource("7_vk8cm")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3afh"]
+albedo_texture = ExtResource("14_au2qy")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkbg8"]
+albedo_texture = ExtResource("15_2n4np")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx64e"]
+albedo_texture = ExtResource("16_lq12f")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wjau"]
+albedo_texture = ExtResource("8_hwcxx")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfr2i"]
+albedo_texture = ExtResource("18_7in2q")
+texture_filter = 0
+
+[node name="grid_terrains" type="Node3D"]
+
+[node name="terrain_1" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_pvx5d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_1"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_s8jfh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_3"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_p3lpf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_4"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_wmc8o")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_5"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_s1rgr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_6"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_6/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fppkg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_7"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_7/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_wfich")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_8"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_9" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_dvx41")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_9"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_9/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_ib02x")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_10"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_10/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_lfyjm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_gowm2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_11"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_11/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_dtw4m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_12"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_12/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_umglj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_13"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_13/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_m3afh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_14"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_14/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -12)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_fkbg8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_15"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_15/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_16" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -12)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_gx64e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_16"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_16/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_17" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_2wjau")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_17"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_17/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")
+
+[node name="terrain_18" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+mesh = SubResource("PlaneMesh_x44pc")
+surface_material_override/0 = SubResource("StandardMaterial3D_vfr2i")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="terrain_18"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="terrain_18/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_od3te")

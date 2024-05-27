@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://de1sqajw4mwey"]
+
+[ext_resource type="Texture2D" uid="uid://di8ixn0ilannp" path="res://Placeholder folder/Item Up Grade Vida.png" id="1_1ihg4"]
+[ext_resource type="Script" path="res://HUD folder/control_hud.gd" id="1_qr1vr"]
+[ext_resource type="Texture2D" uid="uid://cqoxwsvcdk481" path="res://Placeholder folder/FullHDBlack.png" id="3_utqgm"]
+
+[node name="Control HUD" type="Control" node_paths=PackedStringArray("lifes_obj_array", "money_text_label") groups=["HUD"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qr1vr")
+lifes_obj_array = [NodePath("Control Margins/HBoxContainer/TextureRectLife"), NodePath("Control Margins/HBoxContainer/TextureRectLife2"), NodePath("Control Margins/HBoxContainer/TextureRectLife3")]
+money_text_label = NodePath("Control Margins/RichTextLabel")
+
+[node name="Control Margins" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control Margins"]
+layout_direction = 2
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 100.0
+
+[node name="TextureRectLife" type="TextureRect" parent="Control Margins/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_1ihg4")
+expand_mode = 3
+
+[node name="TextureRectLife2" type="TextureRect" parent="Control Margins/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_1ihg4")
+expand_mode = 3
+
+[node name="TextureRectLife3" type="TextureRect" parent="Control Margins/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_1ihg4")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control Margins"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 250.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]100000 $[/center]"
+scroll_active = false
+
+[node name="TextureRect" type="TextureRect" parent="Control Margins"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -500.0
+offset_bottom = 400.0
+grow_horizontal = 0
+texture = ExtResource("3_utqgm")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control Margins/TextureRect"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 475.0
+offset_bottom = 475.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "- Tire fotos dos dragões marinhos
+
+- Acumule 300$
+[center] 
+Use esapaço pra tira fotos
+AWSD para se mover
+[/center]"

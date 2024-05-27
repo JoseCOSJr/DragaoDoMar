@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://o82oplt7fe4g"]
+[gd_scene load_steps=9 format=3 uid="uid://o82oplt7fe4g"]
 
+[ext_resource type="Script" path="res://Miscs/flash_picture.gd" id="1_2dk07"]
 [ext_resource type="Script" path="res://DisableFunction.gd" id="1_k6roj"]
-[ext_resource type="Texture2D" uid="uid://c07gqn24nc145" path="res://Placeholder folder/Quadrado.png" id="2_pfyb1"]
+[ext_resource type="Script" path="res://Miscs/AnimationStartPlay.gd" id="3_ppb5w"]
+[ext_resource type="Texture2D" uid="uid://d1b0cwpbl5vxb" path="res://Miscs/Sprites camera distancia.png" id="3_woxat"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sbyji"]
-radius = 2.0
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_p56pg"]
 length = 0.001
@@ -83,8 +85,10 @@ _data = {
 }
 
 [node name="Flash Picture" type="Area3D"]
-collision_layer = 32
-collision_mask = 0
+collision_layer = 0
+collision_mask = 9
+script = ExtResource("1_2dk07")
+angRange = 60
 
 [node name="DisableFunction" type="Node" parent="." node_paths=PackedStringArray("objtDisable")]
 script = ExtResource("1_k6roj")
@@ -95,12 +99,21 @@ shape = SubResource("SphereShape3D_sbyji")
 disabled = true
 
 [node name="Sprite3DFlashPicture" type="Sprite3D" parent="."]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+sorting_offset = 10.0
 transparency = 1.0
+gi_mode = 2
+offset = Vector2(-4, 73)
+pixel_size = 0.0625
 axis = 1
-texture = ExtResource("2_pfyb1")
+texture = ExtResource("3_woxat")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tydbn")
 }
+script = ExtResource("3_ppb5w")
+animationPlay = "flash_picture_animation"
+
+[connection signal="body_entered" from="." to="." method="obtEnter"]

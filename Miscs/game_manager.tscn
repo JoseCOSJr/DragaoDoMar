@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://fj2qcdynbfd1"]
+[gd_scene load_steps=3 format=3 uid="uid://fj2qcdynbfd1"]
 
 [ext_resource type="Script" path="res://Miscs/GameManager.gd" id="1_ijk7g"]
+[ext_resource type="Script" path="res://GdScripts folder/Switch_Scene.gd" id="2_stgsb"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node" groups=["GameManager"]]
 script = ExtResource("1_ijk7g")
+
+[node name="GameOver" type="Node" parent="."]
+script = ExtResource("2_stgsb")
+scene = "res://Scenes  folder/control_game_over.tscn"
+
+[node name="Win" type="Node" parent="."]
+script = ExtResource("2_stgsb")
+scene = "res://Scenes  folder/victory_screem.tscn"

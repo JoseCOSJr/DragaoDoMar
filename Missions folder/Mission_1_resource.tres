@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://GdScripts folder/Mission_script.gd" id="1_871ma"]
 [ext_resource type="Script" path="res://GdScripts folder/Task_base.gd" id="2_w0td3"]
 
-[sub_resource type="Resource" id="Resource_v0iee"]
+[sub_resource type="Resource" id="Resource_qjl6b"]
 script = ExtResource("2_w0td3")
 actionTypeNeedMake = 0
-howManyNeedMakeAction = 4
+howManyNeedMakeAction = 5
 objNeedAction = "Dragon 1"
 objtNeededToMakeAction = ""
 
 [resource]
 script = ExtResource("1_871ma")
 idMission = "Mission 1"
-taskArray = Array[ExtResource("2_w0td3")]([SubResource("Resource_v0iee")])
+tasksArray = Array[ExtResource("2_w0td3")]([SubResource("Resource_qjl6b")])
 reward = 200

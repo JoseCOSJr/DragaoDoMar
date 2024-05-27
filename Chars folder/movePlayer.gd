@@ -5,8 +5,18 @@ const SPEED = 3.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var direction = Vector3.FORWARD
 var cam
+var can_move = true
 
 @onready var animation_tree : AnimationTree = $AnimationTree
+
+func set_can_move(can):
+	can_move = can
+
+func wait_to_move():
+	set_can_move(false)
+	velocity = Vector3(0, velocity.y, 0)
+	await get_tree().create_timer(0.5).timeout
+	set_can_move(true)
 
 func _ready():
 	cam = get_tree().get_first_node_in_group("camPlayer")
@@ -19,8 +29,11 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left_move", "right_move", "up_move", "down_move")
+	var input_dir =  Input.get_vector("left_move", "right_move", "up_move", "down_move")
 	direction = (Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if(!can_move):
+		move_and_slide()
+		return
 	
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -38,7 +51,7 @@ func _physics_process(delta):
 	update_animations()
 
 func update_animations():
-	var direction2D = Vector2(direction.x, direction.z)
+	var direction2D = Vector2(direction.x, -direction.z)
 	if abs(direction2D.y) > 0.25:
 		direction2D.x = 0
 	else :
@@ -49,6 +62,7 @@ func update_animations():
 	if direction2D.length_squared() > 0:
 		animation_tree["parameters/Idle/blend_position"] = direction2D
 		animation_tree["parameters/Move/blend_position"] = direction2D
+		animation_tree["parameters/InBoard/blend_position"] = direction2D
 		animation_tree["parameters/conditions/idle"] = false
 		animation_tree["parameters/conditions/is_moving"] = true
 		return

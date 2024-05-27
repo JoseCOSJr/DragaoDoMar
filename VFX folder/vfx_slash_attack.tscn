@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://brxk5ha7ly0rw"]
+
+[ext_resource type="Script" path="res://DisableFunction.gd" id="1_epxsx"]
+[ext_resource type="Texture2D" uid="uid://cphuqfhfckvde" path="res://Chars folder/SlashClaws.png" id="2_aftbc"]
+[ext_resource type="Script" path="res://Miscs/AnimationStartPlay.gd" id="3_odq1g"]
+
+[sub_resource type="Animation" id="Animation_stxg6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tmepa"]
+resource_name = "sfx_slash_animation"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disable_objt"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vi5i"]
+_data = {
+"RESET": SubResource("Animation_stxg6"),
+"sfx_slash_animation": SubResource("Animation_tmepa")
+}
+
+[node name="vfx_slash_attack" type="Node3D" node_paths=PackedStringArray("objtDisable")]
+script = ExtResource("1_epxsx")
+objtDisable = NodePath(".")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+pixel_size = 0.0625
+axis = 1
+texture_filter = 0
+texture = ExtResource("2_aftbc")
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vi5i")
+}
+script = ExtResource("3_odq1g")
+animationPlay = "sfx_slash_animation"

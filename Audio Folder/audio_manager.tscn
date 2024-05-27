@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://csly1i7t1g1ex"]
+[gd_scene load_steps=4 format=3 uid="uid://csly1i7t1g1ex"]
 
 [ext_resource type="AudioStream" uid="uid://bl5ty4cj5jiaf" path="res://Placeholder folder/musica_da_fase.mp3" id="1_dl6f6"]
+[ext_resource type="Script" path="res://Audio Folder/audio_manager.gd" id="2_1o65g"]
+[ext_resource type="PackedScene" uid="uid://dv508lfr238sd" path="res://Audio Folder/base_sfx_emiter.tscn" id="3_x1lgx"]
 
-[node name="audio_manager" type="AudioStreamPlayer"]
+[node name="audio_manager" type="AudioStreamPlayer" groups=["Sound Manager"]]
 stream = ExtResource("1_dl6f6")
 autoplay = true
+script = ExtResource("2_1o65g")
+base_emit_sound = ExtResource("3_x1lgx")
+
+[node name="Node3D" type="Node3D" parent="."]

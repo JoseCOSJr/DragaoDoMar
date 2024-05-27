@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwhyyjra4n0qs"
+path="res://.godot/imported/som da lanca(atacando) (mp3cut.net).mp3-9d3323f3a3daaee2858a03c1715047be.mp3str"
+
+[deps]
+
+source_file="res://Placeholder folder/som da lanca(atacando) (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/som da lanca(atacando) (mp3cut.net).mp3-9d3323f3a3daaee2858a03c1715047be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

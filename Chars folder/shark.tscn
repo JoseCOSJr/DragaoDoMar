@@ -1,43 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://boh0tn44t4p54"]
+[gd_scene load_steps=21 format=3 uid="uid://boh0tn44t4p54"]
 
 [ext_resource type="Script" path="res://Chars folder/DamageArea.gd" id="1_d7slo"]
 [ext_resource type="Script" path="res://Chars folder/dragons.gd" id="1_qqyrs"]
 [ext_resource type="Texture2D" uid="uid://3epieuli1atm" path="res://HUD folder/Tubarao e mina.png" id="2_5qpos"]
+[ext_resource type="AudioStream" uid="uid://dlw63ss505nc5" path="res://Placeholder folder/som de colidir com objetos e a fase (mp3cut.net).mp3" id="3_g0p32"]
+[ext_resource type="PackedScene" uid="uid://c04ejualtsh7s" path="res://VFX folder/vfx_bite_attack.tscn" id="4_qo4xc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jeh53"]
 height = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_qbcm8"]
 height = 1.0
-
-[sub_resource type="Animation" id="Animation_0w88y"]
-resource_name = "shark_up_animation"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2i(0, 0), Vector2(1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_b7104"]
 length = 0.001
@@ -189,6 +162,35 @@ tracks/2/keys = {
 "values": [Vector3(0, -1.5708, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0w88y"]
+resource_name = "shark_up_animation"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2i(0, 0), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uatnx"]
 _data = {
 "RESET": SubResource("Animation_b7104"),
@@ -230,9 +232,9 @@ states/Dragon_Move/position = Vector2(356, 104)
 transitions = ["Start", "Dragon_Move", SubResource("AnimationNodeStateMachineTransition_wb7rm")]
 
 [node name="Shark" type="CharacterBody3D"]
-collision_mask = 113
-platform_floor_layers = 4278190085
-platform_wall_layers = 82
+collision_mask = 114
+platform_floor_layers = 4278190082
+platform_wall_layers = 80
 script = ExtResource("1_qqyrs")
 speed = 2.0
 money_per_picture = 0
@@ -247,6 +249,8 @@ collision_mask = 9
 script = ExtResource("1_d7slo")
 pushForce = 5
 trasnformBase = NodePath(".")
+sfx_damage = ExtResource("3_g0p32")
+vfx_hit = ExtResource("4_qo4xc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)

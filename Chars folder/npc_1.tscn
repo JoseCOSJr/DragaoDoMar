@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgj1vmbd10fjh"]
+
+[ext_resource type="Texture2D" uid="uid://httixhvrigtw" path="res://Chars folder/npc1-idel.png" id="1_am8yw"]
+[ext_resource type="Texture2D" uid="uid://b8t0dqxuysgju" path="res://Chars folder/npc1-walking-2.png" id="2_no062"]
+[ext_resource type="Texture2D" uid="uid://cplm21udag78h" path="res://Chars folder/npc1-walking-1.png" id="3_glota"]
+
+[sub_resource type="Curve3D" id="Curve3D_nqage"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ma0aa"]
+height = 1.0
+
+[sub_resource type="Animation" id="Animation_eiujc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_am8yw")]
+}
+
+[sub_resource type="Animation" id="Animation_vc0yg"]
+resource_name = "NPC1_move_down_animation"
+length = 0.4
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_am8yw"), ExtResource("1_am8yw"), ExtResource("2_no062"), ExtResource("3_glota")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnsgv"]
+_data = {
+"NPC1_move_down_animation": SubResource("Animation_vc0yg"),
+"RESET": SubResource("Animation_eiujc")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aklao"]
+animation = &"NPC1_move_down_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egiqd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_i8bq7"]
+states/NPC1_move_down_animation/node = SubResource("AnimationNodeAnimation_aklao")
+states/NPC1_move_down_animation/position = Vector2(430, 108)
+transitions = ["Start", "NPC1_move_down_animation", SubResource("AnimationNodeStateMachineTransition_egiqd")]
+
+[node name="NPC1" type="Path3D"]
+curve = SubResource("Curve3D_nqage")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 8
+collision_mask = 118
+platform_floor_layers = 18
+platform_wall_layers = 68
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49, 0)
+pixel_size = 0.0031
+axis = 1
+texture_filter = 0
+texture = ExtResource("1_am8yw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CylinderShape3D_ma0aa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tnsgv")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_i8bq7")
+anim_player = NodePath("../AnimationPlayer")

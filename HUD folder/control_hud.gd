@@ -2,6 +2,7 @@ extends Control
 
 @export var lifes_obj_array: Array[Control]
 @export var money_text_label: RichTextLabel
+@export var item_drop_text_label: RichTextLabel
 
 func  att_lifes_inf(hpNow):
 	for x in lifes_obj_array.size():
@@ -12,6 +13,10 @@ func  att_lifes_inf(hpNow):
 
 func  att_money_inf(moneyNow):
 	money_text_label.text = "[center]"+ str(moneyNow) +" $[/center]"
+
+func  att_item_drop_inf(amount):
+	item_drop_text_label.text = str(amount)+"/3"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

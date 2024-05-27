@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://fwuv87qhluc8"]
+
+[ext_resource type="Texture2D" uid="uid://c8qgm1msckslv" path="res://Props folder/Stone_2.png" id="1_e10m3"]
+
+[node name="Stone_2" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.0625
+axis = 1
+texture_filter = 0
+texture = ExtResource("1_e10m3")

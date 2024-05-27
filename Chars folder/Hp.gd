@@ -20,9 +20,10 @@ func make_sprite_Blink():
 	sprite.transparency = 0
 
 func add_hp(add, pushForce):
+	var is_apply = false
 	if  add < 0:
 		if invulnerable || hp_current == 0:
-			return
+			return is_apply
 		time_invulnerable()
 	
 	hp_current+=add
@@ -31,13 +32,24 @@ func add_hp(add, pushForce):
 	elif hp_current <= 0:
 		hp_current = 0
 		node_move.set_can_move(false)
+		node_move.velocity = Vector3.ZERO
 		get_parent().hide()
 		var gmManager = get_tree().get_first_node_in_group("GameManager")
 		gmManager.GameOver()
 		
 	var hud = get_tree().get_first_node_in_group("HUD")
 	hud.att_lifes_inf(hp_current)
-	knock_down(pushForce)
+	is_apply = true
+	
+	if pushForce.length() == 0:
+		return is_apply
+	elif !is_apply:
+		is_apply = true
+	
+	if hp_current > 0:
+		knock_down(pushForce)
+	
+	return is_apply
 
 func knock_down(pushForce):
 	node_move.set_can_move(false)

@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const MAX_PICTURES_TAKEN = 10
+const MAX_PICTURES_TAKEN = 15
 
 @export var speed = 3.0
-@export var money_per_picture = 10
+@export var money_per_picture = 30
 @export var vision_range = 10
 var pictures_taked = 0
 
@@ -12,11 +12,24 @@ var pictures_taked = 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var can_move = true
+
+func get_bait_item():
+	if !can_move:
+		return
+	
+	can_move = false
+	velocity = Vector3(0, velocity.y, 0)
+	await get_tree().create_timer(2).timeout
+	can_move = true
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if !can_move:
+		return
 	
 	var player = get_tree().get_first_node_in_group("Player") as CharacterBody3D
 	var currentLocation = global_transform.origin
@@ -52,6 +65,6 @@ func add_money_for_picture():
 		return
 	
 	var player = get_tree().get_first_node_in_group("Player")
-	var inv = player.find_child("PlayerInventory")
+	var inv = player.find_child("Inventory")
 	inv.add_money(money_per_picture)
 	pictures_taked += 1

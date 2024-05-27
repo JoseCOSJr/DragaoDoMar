@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bifnp3mg76g1w"]
+
+[ext_resource type="Script" path="res://ItemBait.gd" id="1_1wrto"]
+[ext_resource type="AudioStream" uid="uid://dwhyyjra4n0qs" path="res://Placeholder folder/som da lanca(atacando) (mp3cut.net).mp3" id="2_4h6cv"]
+[ext_resource type="Texture2D" uid="uid://sgkhfvrnookh" path="res://Itens folder/Fruity_1.png" id="2_nt27o"]
+[ext_resource type="AudioStream" uid="uid://dx0t8m0sin4fr" path="res://Placeholder folder/20265__koops__apple_crunch_02.wav" id="3_f3m3h"]
+[ext_resource type="Script" path="res://DisableFunction.gd" id="3_gmurn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_thotq"]
+height = 1.0
+radius = 0.4
+
+[node name="DropItem" type="Area3D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_1wrto")
+sfx_get = ExtResource("2_4h6cv")
+sfx_bait = ExtResource("3_f3m3h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_thotq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49, 0)
+pixel_size = 0.0625
+axis = 1
+texture_filter = 0
+texture = ExtResource("2_nt27o")
+
+[node name="Disable func" type="Node" parent="." node_paths=PackedStringArray("objtDisable")]
+script = ExtResource("3_gmurn")
+objtDisable = NodePath("..")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="collider_enter"]
+[connection signal="signal_get_item" from="." to="Disable func" method="disable_objt"]
+[connection signal="timeout" from="Timer" to="Disable func" method="disable_objt"]

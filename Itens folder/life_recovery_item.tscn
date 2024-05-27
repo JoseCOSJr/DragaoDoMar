@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://e6qhvxa4ksqf"]
+
+[ext_resource type="Script" path="res://DisableFunction.gd" id="1_yv2y0"]
+[ext_resource type="Script" path="res://Chars folder/DamageArea.gd" id="2_j6nlw"]
+[ext_resource type="Texture2D" uid="uid://co3xiaseqjean" path="res://Itens folder/Fruity_2.png" id="3_l8mus"]
+[ext_resource type="AudioStream" uid="uid://b55ur3qulryvw" path="res://Placeholder folder/som de coletar itens(hp e outro itens) (mp3cut.net).mp3" id="3_vk2ah"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8554u"]
+height = 1.0
+
+[node name="Life_recovery_item" type="Node3D" node_paths=PackedStringArray("objtDisable")]
+script = ExtResource("1_yv2y0")
+objtDisable = NodePath(".")
+only_hide = true
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("trasnformBase")]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("2_j6nlw")
+damage = -1
+trasnformBase = NodePath(".")
+sfx_damage = ExtResource("3_vk2ah")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_8554u")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49, 0)
+pixel_size = 0.0625
+axis = 1
+texture_filter = 0
+texture = ExtResource("3_l8mus")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="TryDamage"]
+[connection signal="damage_taked" from="Area3D" to="." method="disable_objt"]

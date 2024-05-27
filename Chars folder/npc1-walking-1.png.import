@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wib5uip2iwqh"
-path="res://.godot/imported/Redemoinho.png-33d192f4c0e50fae6b106a5a24a0371a.ctex"
+uid="uid://cplm21udag78h"
+path="res://.godot/imported/npc1-walking-1.png-a362cbde3d62623d5cbcd2f68b30d553.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes  folder/Redemoinho.png"
-dest_files=["res://.godot/imported/Redemoinho.png-33d192f4c0e50fae6b106a5a24a0371a.ctex"]
+source_file="res://Chars folder/npc1-walking-1.png"
+dest_files=["res://.godot/imported/npc1-walking-1.png-a362cbde3d62623d5cbcd2f68b30d553.ctex"]
 
 [params]
 

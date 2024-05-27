@@ -1,7 +1,9 @@
 extends Node
 
 @export var flashPictureObjt : PackedScene
+@export var item_drop: PackedScene
 @export var respawNodeFunc : Node3D
+@export var inventory : Node
 
 var cooldownAction = 0
 var can_action = true
@@ -29,7 +31,9 @@ func _process(delta):
 		respawNodeFunc.respawObjt(flashPictureObjt)
 		return
 	
-	if Input.is_action_just_pressed("throw_item") :
-		var respawItem = respawNodeFunc.get_script()
-		# respawItem.respawObjt()
+	var amountItem = inventory.amount_item_drop
+	
+	if Input.is_action_just_pressed("throw_item") && amountItem > 0:
+		respawNodeFunc.respawObjt(item_drop)
+		inventory.add_item_drop(-1)
 		return

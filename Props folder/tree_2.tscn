@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4nixm3oovp7"]
+
+[ext_resource type="Texture2D" uid="uid://cjkue41ukdd0w" path="res://Props folder/Tree_2.png" id="1_hpksu"]
+
+[node name="Tree_2" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.0625
+axis = 1
+texture_filter = 0
+texture = ExtResource("1_hpksu")

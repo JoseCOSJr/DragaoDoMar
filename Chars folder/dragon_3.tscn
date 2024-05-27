@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4uns3tqi6t87"]
+[gd_scene load_steps=23 format=3 uid="uid://b4uns3tqi6t87"]
 
 [ext_resource type="Script" path="res://Chars folder/dragons.gd" id="1_k51yk"]
 [ext_resource type="Script" path="res://Chars folder/DamageArea.gd" id="1_w487m"]
 [ext_resource type="Texture2D" uid="uid://dmpwoh08d7eqi" path="res://Chars folder/Dragao3_1.png" id="2_mx6n2"]
 [ext_resource type="Texture2D" uid="uid://cltit1qi5qbvy" path="res://Chars folder/Dragao3_2.png" id="2_q2dpe"]
+[ext_resource type="AudioStream" uid="uid://kevti4qx50hd" path="res://Placeholder folder/som do porrete acertando (mp3cut.net).mp3" id="3_anfhh"]
+[ext_resource type="PackedScene" uid="uid://brxk5ha7ly0rw" path="res://VFX folder/vfx_slash_attack.tscn" id="4_eeru5"]
 [ext_resource type="Texture2D" uid="uid://bngc3ypsv386a" path="res://Chars folder/Dragao3_3.png" id="5_x46yh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y8jcj"]
@@ -352,12 +354,12 @@ states/Dragon_Move/position = Vector2(431, 100)
 transitions = ["Start", "Dragon_Move", SubResource("AnimationNodeStateMachineTransition_3pa1i")]
 
 [node name="Dragon 3" type="CharacterBody3D"]
-collision_mask = 113
-platform_floor_layers = 4278190085
-platform_wall_layers = 82
+collision_mask = 118
+platform_floor_layers = 4278190082
+platform_wall_layers = 86
 script = ExtResource("1_k51yk")
 speed = 1.5
-money_per_picture = 5
+money_per_picture = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_y8jcj")
@@ -368,6 +370,8 @@ collision_mask = 9
 script = ExtResource("1_w487m")
 pushForce = 12
 trasnformBase = NodePath(".")
+sfx_damage = ExtResource("3_anfhh")
+vfx_hit = ExtResource("4_eeru5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)

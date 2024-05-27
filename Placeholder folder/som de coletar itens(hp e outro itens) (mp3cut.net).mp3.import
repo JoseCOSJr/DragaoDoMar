@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b55ur3qulryvw"
+path="res://.godot/imported/som de coletar itens(hp e outro itens) (mp3cut.net).mp3-925a77154b170f0144c5217a1ed89bda.mp3str"
+
+[deps]
+
+source_file="res://Placeholder folder/som de coletar itens(hp e outro itens) (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/som de coletar itens(hp e outro itens) (mp3cut.net).mp3-925a77154b170f0144c5217a1ed89bda.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv508lfr238sd"]
+
+[ext_resource type="Script" path="res://DisableFunction.gd" id="1_7o2ct"]
+
+[node name="BaseSfxEmiter" type="AudioStreamPlayer3D" node_paths=PackedStringArray("objtDisable")]
+max_distance = 10.0
+script = ExtResource("1_7o2ct")
+objtDisable = NodePath(".")
+
+[connection signal="finished" from="." to="." method="disable_objt"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cwo6y2ytuw2ha"]
+[gd_scene load_steps=48 format=3 uid="uid://cwo6y2ytuw2ha"]
 
 [ext_resource type="Script" path="res://Chars folder/movePlayer.gd" id="1_fmamo"]
 [ext_resource type="Script" path="res://Chars folder/PlayerInventory.gd" id="2_5vmmi"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" path="res://GdScripts folder/RespawObjts.gd" id="2_jjnr1"]
 [ext_resource type="PackedScene" uid="uid://o82oplt7fe4g" path="res://Miscs/flash_picture.tscn" id="3_5jbxx"]
 [ext_resource type="Texture2D" uid="uid://dgq868ilhcsfh" path="res://Chars folder/Sprite Sheet Protagonista.png" id="4_0j23s"]
+[ext_resource type="AudioStream" uid="uid://wt6squ43v8j1" path="res://Placeholder folder/som do dinheiro entrando.mp3" id="4_pm6wa"]
 [ext_resource type="Texture2D" uid="uid://vskftwq13m7m" path="res://Chars folder/Barco.png" id="5_53kk0"]
+[ext_resource type="PackedScene" uid="uid://bifnp3mg76g1w" path="res://Itens folder/drop_item.tscn" id="7_sny7q"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_t673o"]
 height = 1.0
@@ -836,7 +838,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 9
-collision_mask = 73
+collision_mask = 82
 floor_max_angle = 0.523599
 platform_floor_layers = 18
 platform_wall_layers = 82
@@ -850,16 +852,19 @@ sprite = NodePath("../Sprite3DBoard")
 [node name="TimerBlink" type="Timer" parent="Hp"]
 wait_time = 0.125
 
-[node name="PlayerInventory" type="Node" parent="."]
+[node name="Inventory" type="Node" parent="."]
 script = ExtResource("2_5vmmi")
+sfx_add_money = ExtResource("4_pm6wa")
 
-[node name="PlayerActionsInputs" type="Node" parent="." node_paths=PackedStringArray("respawNodeFunc")]
+[node name="PlayerActionsInputs" type="Node" parent="." node_paths=PackedStringArray("respawNodeFunc", "inventory")]
 script = ExtResource("2_dbaey")
 flashPictureObjt = ExtResource("3_5jbxx")
+item_drop = ExtResource("7_sny7q")
 respawNodeFunc = NodePath("../Pos Respaw")
+inventory = NodePath("../Inventory")
 
 [node name="Pos Respaw" type="Node3D" parent="." node_paths=PackedStringArray("posRespaw", "parent_resp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 script = ExtResource("2_jjnr1")
 posRespaw = NodePath(".")
 parent_resp = NodePath("..")

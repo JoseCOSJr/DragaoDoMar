@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5y1u77ajf1d1"]
+[gd_scene load_steps=5 format=3 uid="uid://5y1u77ajf1d1"]
 
 [ext_resource type="Texture2D" uid="uid://bxc7hdiydw38n" path="res://Placeholder folder/FullHD.png" id="1_bb31n"]
 [ext_resource type="Script" path="res://GdScripts folder/Switch_Scene.gd" id="1_opod6"]
 [ext_resource type="Texture2D" uid="uid://ds0h41s36pt2m" path="res://HUD folder/Letra.png" id="2_p1m8l"]
+[ext_resource type="AudioStream" uid="uid://bpqcjyocffgxk" path="res://Placeholder folder/518305__mrthenoronha__stage-clear-8-bit.wav" id="4_0cxcw"]
 
 [node name="Victory_screem" type="Control"]
 layout_mode = 3
@@ -38,8 +39,12 @@ grow_vertical = 2
 texture = ExtResource("2_p1m8l")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0cxcw")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="Switch_Scene"]

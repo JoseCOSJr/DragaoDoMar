@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://drxnyofu4e1u7"]
+[gd_scene load_steps=11 format=3 uid="uid://drxnyofu4e1u7"]
 
 [ext_resource type="Script" path="res://Chars folder/DamageArea.gd" id="1_41cf3"]
 [ext_resource type="Script" path="res://Miscs/Follow_path.gd" id="1_coqnk"]
-[ext_resource type="Texture2D" uid="uid://wib5uip2iwqh" path="res://Scenes  folder/Redemoinho.png" id="2_yehqx"]
+[ext_resource type="Texture2D" uid="uid://wib5uip2iwqh" path="res://Miscs/Redemoinho.png" id="2_yehqx"]
+[ext_resource type="AudioStream" uid="uid://djc25mksjy6dd" path="res://Placeholder folder/som de dano do sapo (mp3cut.net).mp3" id="3_4p3ox"]
 [ext_resource type="Script" path="res://Miscs/AnimationStartPlay.gd" id="3_hj3tp"]
 
 [sub_resource type="Curve3D" id="Curve3D_gc2ac"]
@@ -55,6 +56,7 @@ _data = {
 [node name="Redemoinho" type="Path3D"]
 curve = SubResource("Curve3D_gc2ac")
 script = ExtResource("1_coqnk")
+time_making_path = 2.0
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
 transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, 0, 0, 0)
@@ -66,6 +68,7 @@ damage = 0
 pushForce = 10
 oppositeForce = true
 trasnformBase = NodePath(".")
+sfx_damage = ExtResource("3_4p3ox")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PathFollow3D/Area3D"]
 shape = SubResource("CylinderShape3D_clc1w")

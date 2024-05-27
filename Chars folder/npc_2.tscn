@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://eb5m15tbmxsg"]
+
+[ext_resource type="Texture2D" uid="uid://ch0f8oi7678s4" path="res://Chars folder/npc2 idel.png" id="1_mvwtc"]
+[ext_resource type="Texture2D" uid="uid://cxp3dpylo2h06" path="res://Chars folder/npc2 walking 1.png" id="2_a3682"]
+[ext_resource type="Texture2D" uid="uid://dvt84rttrjvvf" path="res://Chars folder/npc2 walking 2.png" id="3_hu5bd"]
+
+[sub_resource type="Curve3D" id="Curve3D_5xnmo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i0rth"]
+height = 1.0
+
+[sub_resource type="Animation" id="Animation_2jwl1"]
+resource_name = "npc2_move_top_animation"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_mvwtc"), ExtResource("2_a3682"), ExtResource("3_hu5bd"), ExtResource("2_a3682")]
+}
+
+[sub_resource type="Animation" id="Animation_5apqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_mvwtc")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hqvj"]
+_data = {
+"RESET": SubResource("Animation_5apqq"),
+"npc2_move_top_animation": SubResource("Animation_2jwl1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rrdp7"]
+animation = &"npc2_move_top_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gxg36"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g374m"]
+states/npc2_move_top_animation/node = SubResource("AnimationNodeAnimation_rrdp7")
+states/npc2_move_top_animation/position = Vector2(474, 86)
+transitions = ["Start", "npc2_move_top_animation", SubResource("AnimationNodeStateMachineTransition_gxg36")]
+
+[node name="NPC2" type="Path3D"]
+curve = SubResource("Curve3D_5xnmo")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+collision_layer = 8
+collision_mask = 118
+platform_floor_layers = 18
+platform_wall_layers = 68
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49, 0)
+pixel_size = 0.0031
+axis = 1
+texture_filter = 0
+texture = ExtResource("1_mvwtc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CylinderShape3D_i0rth")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2hqvj")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_g374m")
+anim_player = NodePath("../AnimationPlayer")

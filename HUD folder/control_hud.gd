@@ -20,7 +20,7 @@ func  att_item_drop_inf(amount):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$"Control Pause".pause()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

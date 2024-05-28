@@ -9,6 +9,21 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i0rth"]
 height = 1.0
 
+[sub_resource type="Animation" id="Animation_5apqq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_mvwtc")]
+}
+
 [sub_resource type="Animation" id="Animation_2jwl1"]
 resource_name = "npc2_move_top_animation"
 length = 0.6
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("1_mvwtc"), ExtResource("2_a3682"), ExtResource("3_hu5bd"), ExtResource("2_a3682")]
-}
-
-[sub_resource type="Animation" id="Animation_5apqq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterBody3D/Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_mvwtc")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2hqvj"]

@@ -20,6 +20,12 @@ func set_can_action(can):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if Input.is_action_just_pressed("start"):
+		var pause_node = get_tree().get_first_node_in_group("Pause")
+		pause_node.pause()
+		return
+	
 	if cooldownAction > 0:
 		cooldownAction -= delta
 		return
